@@ -2,6 +2,73 @@
 CONF="/etc/modprobe.d/alsa-macbook.conf"
 
 if [ -f "$CONF" ]; then
+    # --- 【イヤホンモード（標準構成）へ切り替え】 ---
+    echo "オーディオ設定をイヤホンモード（標準構成）へ切り替えています..."
+
+    # 1. オーディオサービスの一時停止（排他利用の解除）
+    systemctl --user mask --now pipewire.socket pipewire-pulse.socket wireplumber.service pipewire.service 2>/dev/null
+    killall -9 qjackctl jackdbus jackd 2>/dev/null
+    sudo fuser -k /dev/snd/* 2>/dev/null
+
+    # 2. オーディオドライバのアンロード
+    sudo modprobe -rv snd_hda_intel
+
+    # 3. カスタム構成プロファイルを退避
+    sudo mv "$CONF" "${CONF}.bak"
+
+    # 4. 標準構成でのドライバ再ロード
+    sudo modprobe -v snd_hda_intel model=auto
+
+    # 5. サービスの復旧
+    systemctl --user unmask pipewire.socket pipewire-pulse.socket wireplumber.service pipewire.service 2>/dev/null
+    systemctl --user start pipewire pipewire-pulse wireplumber 2>/dev/null
+    sleep 2
+    qjackctl --start &
+    echo "切り替えが完了しました。イヤホンから音声が出力されるか確認してください。"
+
+else
+    # --- 【スピーカーモード（パッチ適用）へ切り替え】 ---
+    echo "オーディオ設定をスピーカーモード（パッチ適用）へ切り替えています..."
+
+    # 1. オーディオサービスの一時停止（確実にアンロードするため mask を使用）
+    systemctl --user mask --now pipewire.socket pipewire-pulse.socket wireplumber.service pipewire.service 2>/dev/null
+    killall -9 qjackctl jackdbus jackd 2>/dev/null
+    sudo fuser -k /dev/snd/* 2>/dev/null
+
+    # 2. 既存ドライバの完全なアンロード
+    sudo modprobe -rv snd_hda_intel snd_hda_codec_cs420x snd_hda_codec_generic snd_hda_core 2>/dev/null
+    sleep 2
+
+    # 3. パッチ適用済み構成設定の配置
+    if [ -f "${CONF}.bak" ]; then
+        sudo mv "${CONF}.bak" "$CONF"
+    else
+        echo "options snd-hda-intel model=macbook-retina" | sudo tee "$CONF" > /dev/null
+    fi
+
+    # 4. パッチ版ドライバを優先的にロード
+    sudo modprobe -v snd_hda_codec_cs420x 2>/dev/null
+    sudo modprobe -v snd_hda_intel index=0
+
+    # 5. ハードウェア認識待ち
+    echo "デバイスを認識しています。少々お待ちください..."
+    sleep 5
+
+    # 6. ミキサー設定の最適化（音量解除）
+    amixer -c 0 sset 'Master' 80% unmute 2>/dev/null
+    amixer -c 0 sset 'Speaker' 100% unmute 2>/dev/null
+
+    # 7. サービスの復旧
+    systemctl --user unmask pipewire.socket pipewire-pulse.socket wireplumber.service pipewire.service 2>/dev/null
+    systemctl --user start pipewire pipewire-pulse wireplumber 2>/dev/null
+    sleep 2
+    qjackctl --start &
+    echo "切り替えが完了しました。スピーカーから音声が出力されるか確認してください。"
+fi
+#!/bin/bash
+CONF="/etc/modprobe.d/alsa-macbook.conf"
+
+if [ -f "$CONF" ]; then
     # --- 【イヤホンモード】（提示された成功手順をそのまま実行） ---
     echo "イヤホンモード（標準ドライバ）へ強制切替中..."
 
