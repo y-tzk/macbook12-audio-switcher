@@ -45,7 +45,7 @@ If you want to set a specific mode directly:
  **Desktop**: LXQt
  **Sound Server**: PipeWire / WirePlumber
 
-If you have tested this script on other distros, please feel free to leave a comment in the **[Discussions](ここにURL)** section. 
+If you have tested this script on other distros, please feel free to leave a comment in the **[Discussions](https://github.com/y-tzk/macbook12-audio-switcher/discussions/1)** section. 
 (No direct support provided for other environments.)
 
  ---
