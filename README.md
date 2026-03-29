@@ -38,14 +38,14 @@ If you want to set a specific mode directly:
 - `set_speaker.sh`: Force to Speaker / スピーカーに固定
 - `set_headphone.sh`: Force to Headphone / イヤホンに固定
 
-- ## Tested Environment / 動作確認済み環境
-- **Model**: MacBook 12-inch (A1534 / Early 2015, 2016, 2017)
-- **OS**: EndeavourOS (Arch Linux based)
-- **Kernel**: 6.18.20-1-lts
-- **Desktop**: LXQt
-- **Sound Server**: PipeWire / WirePlumber
+ ## Tested Environment / 動作確認済み環境
+ **Model**: MacBook 12-inch (A1534 / Early 2015, 2016, 2017)
+ **OS**: EndeavourOS (Arch Linux based)
+ **Kernel**: 6.18.20-1-lts
+ **Desktop**: LXQt
+ **Sound Server**: PipeWire / WirePlumber
 
-- ---
+ ---
 ## Disclaimer / 免責事項
 - **Use at your own risk.** I am not responsible for any damage to your hardware or software.
 - This script modifies system files (`/etc/modprobe.d/`) and reloads kernel modules.
