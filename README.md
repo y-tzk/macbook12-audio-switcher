@@ -31,3 +31,9 @@ Linux カーネル 6.18 以降の MacBook 12 (A1534) で、再起動なしにス
    ```bash
    sudo ./switch_audio.sh
    ```
+
+### Individual Scripts / 個別スクリプト
+If you want to set a specific mode directly:
+特定のモードに直接固定したい場合：
+- `set_speaker.sh`: Force to Speaker / スピーカーに固定
+- `set_headphone.sh`: Force to Headphone / イヤホンに固定
