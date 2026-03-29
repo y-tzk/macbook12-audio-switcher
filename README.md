@@ -45,6 +45,9 @@ If you want to set a specific mode directly:
  **Desktop**: LXQt
  **Sound Server**: PipeWire / WirePlumber
 
+If you have tested this script on other distros, please feel free to leave a comment in the **[Discussions](ここにURL)** section. 
+(No direct support provided for other environments.)
+
  ---
 ## Disclaimer / 免責事項
 - **Use at your own risk.** I am not responsible for any damage to your hardware or software.
