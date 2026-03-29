@@ -47,7 +47,7 @@ MacBook 12-inch features a **4-speaker system**: two main speakers on the sides 
 macbook12は４スピーカー構成で、サイドに２つのメインスピーカーと中央に２つのツイーターがあります。４つに繋ぐと音が良くなった気がします。
 
  ## Tested Environment / 動作確認済み環境
- **Model**: MacBook 12-inch (A1534 / Early 2015, 2016, 2017)
+ **Model**: MacBook 12-inch (A1534 / Early 2016)
  **OS**: EndeavourOS (Arch Linux based)
  **Kernel**: 6.18.20-1-lts
  **Desktop**: LXQt
