@@ -37,3 +37,14 @@ If you want to set a specific mode directly:
 特定のモードに直接固定したい場合：
 - `set_speaker.sh`: Force to Speaker / スピーカーに固定
 - `set_headphone.sh`: Force to Headphone / イヤホンに固定
+
+- ---
+## Disclaimer / 免責事項
+- **Use at your own risk.** I am not responsible for any damage to your hardware or software.
+- This script modifies system files (`/etc/modprobe.d/`) and reloads kernel modules.
+- Ensure you have a backup of your data before running these scripts.
+
+- **自己責任で使用してください。** このスクリプトの使用によって生じたハードウェアやソフトウェアの損害について、作者は一切の責任を負いません。
+- このスクリプトはシステムファイル（`/etc/modprobe.d/`）を書き換え、カーネルモジュールをリロードします。
+- 実行前に必ずデータのバックアップを取ってください。
+
