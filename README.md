@@ -27,8 +27,7 @@ Linux カーネル 6.18 以降の MacBook 12 (A1534) で、再起動なしにス
    ```bash
    chmod +x switch_audio.sh
    ```
-   
-3.Run with sudo
+3. Run with sudo
    ```bash
    sudo ./switch_audio.sh
    ```
