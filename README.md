@@ -38,12 +38,14 @@ If you want to set a specific mode directly:
 - `set_speaker.sh`: Force to Speaker / スピーカーに固定
 - `set_headphone.sh`: Force to Headphone / イヤホンに固定
 
-  ### Tips: Full 4-Speaker Audio (JACK)
+### Tips: Full 4-Speaker Audio (JACK)
 To enable all 4 speakers, connect your output to all 4 playback ports:
 全4スピーカーを有効にするには、JACKで以下のように接続してください：
 - **Left Source** -> `playback_1` & `playback_3`
 - **Right Source** -> `playback_2` & `playback_4`
 You can automate this using **QjackCtl Patchbay**.
+- `4Speaker.sh`:  The script now automatically connects all 4 speakers via JACK. / 4スピーカー接続
+
 
 MacBook 12-inch features a **4-speaker system**: two main speakers on the sides and two tweeters in the center. By default, only 2 ports may be connected. Connecting all 4 playback ports significantly improves sound richness and clarity.
 macbook12は４スピーカー構成で、サイドに２つのメインスピーカーと中央に２つのツイーターがあります。４つに繋ぐと音が良くなった気がします。
