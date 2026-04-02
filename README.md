@@ -44,6 +44,7 @@ To enable all 4 speakers, connect your output to all 4 playback ports:
 You can automate this using **QjackCtl Patchbay**.
 
 MacBook 12-inch features a **4-speaker system**: two main speakers on the sides and two tweeters in the center. By default, only 2 ports may be connected. Connecting all 4 playback ports significantly improves sound richness and clarity.
+
 macbook12は４スピーカー構成で、サイドに２つのメインスピーカーと中央に２つのツイーターがあります。４つに繋ぐと音が良くなった気がします。
 
  ## Tested Environment / 動作確認済み環境
