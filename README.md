@@ -1,4 +1,7 @@
 # macbook12-audio-switcher
+
+＊＊The driver prior to leifliddy/macbook12-audio-driver@5c3582f is the point of comparison.＊＊
+
 Audio Switcher for MacBook 12 (A1534) on Linux. Toggle between Internal Speaker and Headphones without reboot. (Kernel 6.18+ support)
 
 Based on the driver by [leifliddy/macbook12-audio-driver](https://github.com/leifliddy/macbook12-audio-driver).
